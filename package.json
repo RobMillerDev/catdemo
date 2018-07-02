@@ -1,0 +1,21 @@
+{
+  "name": "link",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "client-sessions": "^0.8.0",
+    "diskdb": "^0.1.17",
+    "ejs": "^2.5.8",
+    "email-validator": "^1.1.1",
+    "express": "^4.16.3"
+  }
+}
