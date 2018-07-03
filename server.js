@@ -28,7 +28,7 @@ let upload = multer({ storage: storage });
 const app = express();
 const port = process.env.PORT;
 const ip = process.env.IP;
-app.use(compression());
+app.use(compression(9));
 
 //setting ejs as render engine
 app.set("view engine", "ejs");
@@ -55,7 +55,7 @@ app.get("/logOut", accounts.logOut);
 app.post("/delAccount", accounts.delAccount);
 
 //image routes
-app.post("/upload", upload.single("photo"), images.upload);
+app.post("/upload", upload.single("file"), images.upload);
 app.get("/images/:id", images.download);
 
 //dashboard
