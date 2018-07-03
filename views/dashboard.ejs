@@ -11,7 +11,7 @@
             <div class="col-sm-6">
                 
                 <form method="POST" action="/upload" enctype="multipart/form-data">
-                    <input type="file" accept="photo/*" name="photo"></input><br>
+                    <input type="file"  name="photo" required></input><br>
                     <input type="submit" value="upload"></input>
                 </form>
             </div>
@@ -20,7 +20,7 @@
 
             <form method="POST" action="/delAccount">
                     delete account
-                    <input type="text" name="password" placeholder="password"></input><br>
+                    <input type="text" name="password" placeholder="password" required></input><br>
                     <input type="submit" value="delete"></input>
             </form>
             </div>

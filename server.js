@@ -1,4 +1,7 @@
 const express = require("express"),
+    path = require("path"),
+    crypto = require("crypto"),
+    compression = require('compression'),
     sessions = require("client-sessions"),
     multer = require("multer"),
     bodyParser = require("body-parser");
@@ -7,18 +10,32 @@ const express = require("express"),
 const accounts = require("./lib/accounts.js"),
     images = require("./lib/images.js"),
     dashboard = require("./lib/dashboard");
+    
+let storage = multer.diskStorage({
+  destination: './uploads/',
+  filename: function (req, file, cb) {
+    crypto.pseudoRandomBytes(16, function (err, raw) {
+      if (err) return cb(err);
 
-const upload = multer({ dest: "./uploads" });
+      cb(null, raw.toString('hex') + path.extname(file.originalname));
+    })
+  }
+})
+
+let upload = multer({ storage: storage });
 
 //express settings
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
+const ip = process.env.IP;
+app.use(compression());
 
 //setting ejs as render engine
 app.set("view engine", "ejs");
 
 //app settings
 app.use(express.static("views"));
+app.use(express.static("uploads"));
 app.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -44,6 +61,6 @@ app.get("/images/:id", images.download);
 //dashboard
 app.get("/dashboard", dashboard.dashboard);
 
-app.listen(port, function(){
+app.listen(port, ip, function(){
     console.log("listening on port: " + port);
 });

@@ -1,21 +1,23 @@
 <doctype HTML>
 <html>
     <head>
-        <title>login demo</title>
+        <title>catcat</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         
     </head>
     <body>
+        holy shit i have no design skill
+        
         <div class="row">
 
             <!-- sign up -->
             <div class="col-sm-6">
                 sign up
                 <form method="POST" action="/signUp">
-                    <input type="text" name="username" placeholder="username"></input><br>
-                    <input type="password" name="password" placeholder="password"></input><br>
-                    <input type="password" name="passwordConfirm" placeholder="confirm password"></input><br>
-                    <input type="text" name="email" placeholder="email"></input><br>
+                    <input type="text" name="username" placeholder="username" required></input><br>
+                    <input type="password" name="password" placeholder="password" required></input><br>
+                    <input type="password" name="passwordConfirm" placeholder="confirm password" required></input><br>
+                    <input type="text" name="email" placeholder="email" required></input><br>
                     <input type="submit" value="sign up"></input>
                 </form>
             </div>
@@ -24,8 +26,8 @@
             <div class="col-sm-6">
                 log in
                 <form method="POST" action="/logIn">
-                    <input type="text" name="username" placeholder="username"></input><br>
-                    <input type="password" name="password" placeholder="password"></input><br>
+                    <input type="text" name="username" placeholder="username" required></input><br>
+                    <input type="password" name="password" placeholder="password" required></input><br>
                     <input type="submit" value="log in"></input>
                 </form>                
             </div>
@@ -35,11 +37,13 @@
                 <div class="col-sm-6">
                     
                     <form method="POST" action="/upload" enctype="multipart/form-data">
-                        <input type="file" accept="photo/*" name="photo"></input><br>
+                        <input type="file"  name="photo" required></input><br>
                         <input type="submit" value="upload"></input>
                     </form>
                 </div>              
             </div>
         </div>
+        
+        when you create an account it will send you back to this page and u gotta log in. i know its a pain in the ass but this is still a work in progress
     </body>
 </html>
